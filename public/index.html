@@ -28,7 +28,18 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      ASDF
+    </div>
+    <script>
+      // concat, filter, map, slice, spread(전개) 연산자
+      const a = [1,2,3]; // 깊은 복사
+      const b = [...a]; // a의 주소값을 참조하는 것이 아닌 ...a를 통해 a의 값을 배열 안에 넣을 수 있음
+      // 일반적으로 const b = a 로 진행하면 주소값을 참조하기 때문에 얕은 복사의 형태를 가지게 됨
+      console.log("1.========== Spread Operator=========");
+      b.push(); // push : 기존 배열의 값을 수정하는 것 (얕은 복사를 했으면 a의 값도 바뀌어야함)
+      console.log("a is ${a}");
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
