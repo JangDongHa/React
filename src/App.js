@@ -3,6 +3,9 @@ import { createRef, useEffect, useMemo, useRef, useState } from 'react';
 import "./App.css";
 import LoginPage from './components/pages/LoginPage';
 import MainPage from "./components/pages/MainPage";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import { Route, Routes } from "react-router-dom";
 
 //0. React Engine = Data 변경을 감지하여 UI를 그려주는 역할
 //1. 실행 과정 (index.html) react에서 page를 바꾼다라는 개념 = body의 내용을 바꾼다. (page를 변경하는 것이 아닌 하나의 페이지에서 body의 내용만 바뀜)
@@ -28,18 +31,15 @@ function App() {
   // 내부에서 Style을 관리하면 
 
   
-  const myRef = useRef(null);
-
-  const [list, setList] = useState([
-    {id: 1, name: "dong"}, 
-    {id: 2, name: "jdh"}
-  ]);
-
-  const myRefs = Array.from({length: list.length}).map(()=>createRef());
 
   return <div>
     <div>
-      <MainPage />
+      <Header />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/login/:id" element={<LoginPage />} />
+        </Routes>
+      <Footer />
     </div>
   </div>;
   // 함수형 변수를 넣을 때 add() 이런식으로 하면 바로 실행이 되기 때문에 add만 적어서 바인딩 되게 해야함

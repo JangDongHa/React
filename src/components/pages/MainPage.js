@@ -10,6 +10,7 @@ import Main from '../main/Main';
 const MainPage = () => {
     const [boards, setBoards] = useState([]); // 상태변수들은 컴포넌트에서 처리하는 것보다 Page에서 처리하는 것이 좋음 (추가 설명 : LoginPage)
     const [number, setNumber] = useState(0);
+    const [user, setUser] = useState({});
 
     useEffect(() => {
         //실제 download를 받는 것으로 가정 (fetch, axios, ajax)
@@ -26,6 +27,7 @@ const MainPage = () => {
         // 이후에 다운을 다 받으면 boards가 수정되었으므로 다시 재실행되어 통신을 통해 받은 값이 들어감
         // 따라서 무엇가를 통신을 통해 받아오는 변수들은 상태 변수로 반드시 정의해야함
         setBoards([...data]);
+        setUser({id: 1, username: "dong"})
     }, [])
 
     // <Main boards={boards} /> 로 데이터를 넘긴 데이터를 props라고 함 (여러 개 넘길 수 있음)
@@ -33,9 +35,7 @@ const MainPage = () => {
     // 따라서 컴포넌트에게 수정이나 삭제의 권한을 주기 위해선 setBoards도 함께 넘겨줘야함
     return (
         <div>
-            <Header />
-            <Main boards={boards} test={1} setBoards={setBoards} number={number} setNumber={setNumber}/>
-            <Footer />
+            <Main boards={boards} setBoards={setBoards} number={number} setNumber={setNumber} user={user}/>
         </div>
     );
 };
