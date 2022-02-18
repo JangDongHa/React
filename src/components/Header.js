@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -19,27 +19,14 @@ const Header = () => {
     return (
         <>
             <div>
-                <StyledHeaderDiv backgroundColor= "blue">
-                <ul>
-                    <li>
-                        <StyledHeaderLink to="/" color='white'>Home</StyledHeaderLink>
-                    </li>
-                    <li>
-                        <Link to="/login/10">Login</Link>
-                    </li>
-                </ul>
-                </StyledHeaderDiv>
-            </div>
-            <div>
-                            <>
-                
+                <>
                 <Navbar bg="primary" variant="dark">
                     <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                    <Link to="/" className='navbar-brand'>Navbar</Link>
                     <Nav className="me-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    <Link to="/" className='nav-link'>Home</Link>
+                    <Link to="/" className='nav-link'>Features</Link>
+                    <Link to="/" className='nav-link'>Pricing</Link>
                     </Nav>
                     </Container>
                 </Navbar>
@@ -52,3 +39,17 @@ const Header = () => {
 };
 
 export default Header;
+
+
+{/* <div>
+                <StyledHeaderDiv backgroundColor= "blue">
+                <ul>
+                    <li>
+                        <StyledHeaderLink to="/" color='white'>Home</StyledHeaderLink>
+                    </li>
+                    <li>
+                        <Link to="/login/10">Login</Link>
+                    </li>
+                </ul>
+                </StyledHeaderDiv>
+            </div> */}

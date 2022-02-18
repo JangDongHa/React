@@ -26,7 +26,6 @@ const Main = (props) => {
     const {boards, setBoards, number, setNumber, user} = props; // const boards = props.boards 라고 하지 않고 넘어온 변수의 이름을 {} 내에 넣으면 알아서 매핑해서 넣어줌
 
 
-
     return (
         <div>
             <h1>This is Main Page (username : {user.username})</h1>

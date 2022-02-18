@@ -6,6 +6,10 @@ import MainPage from "./components/pages/MainPage";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Route, Routes } from "react-router-dom";
+import { Nav } from "react-bootstrap";
+import Navigation from "./components/Navigation";
+import ListPage from "./pages/ListPage";
+import WritePage from "./pages/WritePage";
 
 //0. React Engine = Data 변경을 감지하여 UI를 그려주는 역할
 //1. 실행 과정 (index.html) react에서 page를 바꾼다라는 개념 = body의 내용을 바꾼다. (page를 변경하는 것이 아닌 하나의 페이지에서 body의 내용만 바뀜)
@@ -28,16 +32,19 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   // = js에서 let t = document.createElement("h1");
   // t.style = {font-size: "1.5em"}';
-  // 내부에서 Style을 관리하면 
+  // 내부에서 Style을 관리하면 유동적인 스타일 변경 가능
 
   
 
   return <div>
     <div>
       <Header />
+        <Navigation />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login/:id" element={<LoginPage />} />
+          <Route path="/list" element={<ListPage />}/>
+          <Route path="/write" element={<WritePage />}/>
         </Routes>
       <Footer />
     </div>
